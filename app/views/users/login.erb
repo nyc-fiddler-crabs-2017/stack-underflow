@@ -1,8 +1,6 @@
 <h1> Login </h1>
 
-<% if @errors %>
-<%= @errors %>
-<% end %>
+<%= erb :_errors %>
 
 <form method='post' action='/login'>
 
