@@ -5,6 +5,8 @@
 <ul>
 
 <% @question.answers.each do |answer| %>
-  <li> <%= answer.body %> - <%=answer.user.email%> </li>
+  <li> <a href= "/questions/<%=@question.id%>/answers/<%=answer.id%>"><%= answer.body %></a> - <%=answer.user.email%>  </li>
 <% end %>
 </ul>
+
+<a href="/questions/<%=@question.id%>/answers/new"> Submit an Answer</a>
