@@ -1,0 +1,19 @@
+<h1> Login </h1>
+
+<%= erb :_errors %>
+
+<form method='post' action='/login'>
+
+  <div>
+    <input type="email" name="user[email]" placeholder="Email">
+  </div>
+
+  <div>
+    <input type="text" name="user[password]" placeholder="Password">
+  </div>
+
+  <div>
+    <input type="Submit" value="Login">
+  </div>
+
+</form>
