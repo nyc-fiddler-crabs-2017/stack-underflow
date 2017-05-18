@@ -8,7 +8,7 @@ post '/questions/:question_id/answers' do
   answer = Answer.new(params[:answer])
   @question.answers << answer
   if answer.save
-    redirect "/questions/#{@question.id}"
+    redirect "/questions/#{@question.id}/answers/#{answer.id}"
   else
     @errors = answer.errors.full_messages
     erb :'/answers/new'
