@@ -1,5 +1,5 @@
 get '/login' do
-  erb :login
+  erb :'users/login'
 end
 
 post '/login' do
@@ -9,7 +9,7 @@ post '/login' do
     redirect '/questions'
   else
     @errors=["Invalid user/password combination"] #do I need to customize an error message?
-    erb :login
+    erb :'users/login'
   end
 end
 
@@ -19,7 +19,7 @@ get '/logout' do
 end
 
 get '/users/new' do
-  erb :register
+  erb :'users/new'
 end
 
 post '/users' do
@@ -29,6 +29,6 @@ post '/users' do
     redirect '/questions'
   else
     @errors=@user.errors.full_messages
-    erb :register
+    erb :'users/new'
   end
 end
