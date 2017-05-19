@@ -5,6 +5,7 @@ get '/questions/:question_id/answers/new' do
 end
 
 post '/questions/:question_id/answers' do
+  halt(404, erb(:'404')) unless logged_in?
   @question = Question.find(params[:question_id])
   answer = Answer.new(params[:answer])
   @question.answers << answer
