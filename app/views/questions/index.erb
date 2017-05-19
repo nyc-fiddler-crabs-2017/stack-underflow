@@ -7,9 +7,9 @@
 
 <h2>Questions</h2>
 <div class="container">
-  <ul>
+  <ul class="questions-list">
     <% @questions.each do |question|%>
-    <li> <a href="/questions/<%=question.id%>"> <%= question.title %> </a></li>
+    <%= erb :'questions/_question', locals: {question: question} %>
     <% end %>
   </ul>
 </div>

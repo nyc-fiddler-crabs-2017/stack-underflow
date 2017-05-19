@@ -19,7 +19,7 @@ post '/questions' do
   current_user.created_questions << question
   if question.save
     if request.xhr?
-        erb :'/questions/_new', layout: false
+        erb :'/questions/_question', layout: false, locals: {question: question}
     else
     redirect "/questions/#{question.id}"
     end
