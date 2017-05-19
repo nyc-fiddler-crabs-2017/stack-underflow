@@ -21,7 +21,7 @@
 
   <% @question.answers.each do |answer| %>
     <li>
-      <div><a href= "/questions/<%=@question.id%>/answers/<%=answer.id%>"><%= answer.body %></a> - <%=answer.user.email%></div>
+      <div><a href= "/questions/<%=@question.id%>/answers/<%=answer.id%>"><%= answer.body %></a> - <%=answer.user.email%><form action="/questions/<%=@question.id%>/comments/new" method="get"><input type="submit" value="Submit"></form></div>
       <% if !answer.is_best_answer? && author?(@question) %>
       <div><form method="post" action="/questions/<%=@question.id%>/answers/<%=answer.id%>">
         <input type="hidden" name="_method" value="put">

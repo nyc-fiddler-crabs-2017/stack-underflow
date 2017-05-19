@@ -40,9 +40,19 @@ $(document).ready(function() {
       url: action,
       data: data
     }).done(function(response){
+      console.log(response)
       $(".comments-ul").append(response);
       $('.new-comment-form').trigger('reset');
     });
   });
+
+  $(".answer-comment-button").on("click", function(event){
+    debugger
+    var question_id =
+    $.ajax({
+      method: get,
+      url: '/questions/:question_id/comments/new',
+    })
+  })
 
 });

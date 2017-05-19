@@ -1,4 +1,5 @@
 get '/questions/:question_id/comments/new' do
+  erb :'comments/_new'
 end
 
 post '/questions/:question_id/comments' do
