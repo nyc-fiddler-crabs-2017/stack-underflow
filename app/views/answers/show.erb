@@ -2,4 +2,5 @@
 
 <a href="/questions/<%=@answer.question.id%>"> Return to Question</a>
 
-<p><%=@answer.body%> - <%=@answer.user.email %> </p>
+<%= erb :'answers/_answer', locals: {answer: answer} %>
+
