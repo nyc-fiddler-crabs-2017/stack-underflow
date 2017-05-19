@@ -19,3 +19,13 @@ get '/questions/:question_id/answers/:answer_id' do
   @answer = Answer.find(params[:answer_id])
   erb :'/answers/show'
 end
+
+
+put '/questions/:question_id/answers/:answer_id' do
+  #this needs to be protected for author only
+  question = Question.find(params[:question_id])
+  answer = Answer.find(params[:answer_id])
+  question.best_answer_id = answer.id
+  question.save!
+  redirect "/questions/#{question.id}"
+end
