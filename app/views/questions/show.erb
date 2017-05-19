@@ -22,12 +22,9 @@
   <% end %>
   </ul>
 
-
-  <%= erb :'answers/_new' %>
-
-
 <% end %>
 
-<% if logged_in? %>
-<a href="/questions/<%=@question.id%>/answers/new"> Submit an Answer</a>
-<% end %>
+
+ <% if logged_in? %>
+   <%= erb :'answers/_new' %>
+ <% end %>
