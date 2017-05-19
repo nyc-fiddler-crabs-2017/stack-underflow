@@ -4,7 +4,7 @@ get '/questions' do
 end
 
 get '/questions/new' do
-  halt(404, erb(:'404')) unless logged_in?
+  verify
   erb :'/questions/new'
 end
 
@@ -14,7 +14,7 @@ get '/questions/:id' do
 end
 
 post '/questions' do
-  halt(404, erb(:'404')) unless logged_in?
+  verify
   question = Question.new(params[:question])
   current_user.created_questions << question
   if question.save
