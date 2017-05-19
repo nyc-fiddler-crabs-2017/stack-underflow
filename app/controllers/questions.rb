@@ -16,6 +16,7 @@ end
 post '/questions' do
   halt(404, erb(:'404')) unless logged_in?
   question = Question.new(params[:question])
+  current_user.created_questions << question
   if question.save
     redirect "/questions/#{question.id}"
   else
