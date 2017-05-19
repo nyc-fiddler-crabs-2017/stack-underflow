@@ -1,7 +1,31 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $("#new-question-form").on("submit", function(event){
+    var form = $(this);
+    var action = form.attr('action');
+    var data = form.serialize();
+    $.ajax({
+      method: form.attr('method'),
+      url: action,
+      data: data
+    }).done(function(response){
+      // can't see what my response is- do I need to isolate only the new form info to prepend?
+      $("ul").prepend(response)
+    });
+  });
+
+  $("#new-answer-form").on("submit", function(event){
+    var form = $(this);
+    var action = form.attr('action');
+    var data = form.serialize();
+    $.ajax({
+      method: $(this).attr("method"),
+      url: action,
+      data: data
+    }).done(function(response){
+      // can't see what my response is- do I need to isolate only the new form info to prepend?
+      $("#answers-ul").append(response)
+    });
+  });
+
 });

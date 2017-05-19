@@ -1,8 +1,6 @@
-<h1>New Question</h1>
 
-<%= erb :_errors %>
 
-<form method="post" action="/questions">
+<form method="post" action="/questions" class="new-question-form">
   <input type="text" placeholder="Title" name="question[title]">
   <input type="text" placeholder="Body" name="question[body]">
   <input type="submit" value="Submit Question">

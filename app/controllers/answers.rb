@@ -8,7 +8,11 @@ post '/questions/:question_id/answers' do
   answer = Answer.new(params[:answer])
   @question.answers << answer
   if answer.save
+    if request.xhr?
+      erb :'/questions/_new', layout: false, locals: {question: @question}
+    else
     redirect "/questions/#{@question.id}/answers/#{answer.id}"
+    end
   else
     @errors = answer.errors.full_messages
     erb :'/answers/new'

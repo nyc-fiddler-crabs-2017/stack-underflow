@@ -15,7 +15,11 @@ end
 post '/questions' do
   question = Question.new(params[:question])
   if question.save
+    if request.xhr?
+        erb :'/questions/_new', layout: false
+    else
     redirect "/questions/#{question.id}"
+    end
   else
     @errors = question.errors.full_messages
     erb :'/questions/new'
