@@ -27,9 +27,14 @@ end
 
 put '/questions/:question_id/answers/:answer_id' do
   #this needs to be protected for author only
-  question = Question.find(params[:question_id])
+  @question = Question.find(params[:question_id])
   answer = Answer.find(params[:answer_id])
-  question.best_answer_id = answer.id
-  question.save!
-  redirect "/questions/#{question.id}"
+  if author?(@question)
+    @question.best_answer_id = answer.id
+    @question.save!
+    redirect "/questions/#{@question.id}"
+  else
+    @errors = ["Must be the author to select best answer."]
+    erb :'/questions/show'
+  end
 end

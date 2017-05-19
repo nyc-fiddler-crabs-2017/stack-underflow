@@ -6,7 +6,7 @@
 <div class="container">
   <ul>
     <% @questions.each do |question|%>
-    <li> <a href="/questions/<%=question.id%>"> <%= question.title %> </a></li>
+    <li> <a href="/questions/<%=question.id%>"> <%= question.title %> </a> - <%= question.answers.length %> answers</li>
     <% end %>
   </ul>
 </div>

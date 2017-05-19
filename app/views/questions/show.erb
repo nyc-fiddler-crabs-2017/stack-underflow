@@ -1,13 +1,17 @@
 <h1> <%=@question.title%> </h1>
 <p><%=@question.body%></p>
+<p> Submitted by: <%=@question.author.email %>
 
+<%= erb :_errors %>
+
+<% if @question.answers.length > 0 %>
 <h2>Answers:</h2>
 <ul>
 
 <% @question.answers.each do |answer| %>
   <li>
     <div><a href= "/questions/<%=@question.id%>/answers/<%=answer.id%>"><%= answer.body %></a> - <%=answer.user.email%></div>
-    <% if !answer.is_best_answer? %>
+    <% if !answer.is_best_answer? && author?(@question) %>
     <div><form method="post" action="/questions/<%=@question.id%>/answers/<%=answer.id%>">
       <input type="hidden" name="_method" value="put">
       <input type="submit" value="Mark as Best Answer">
@@ -18,4 +22,7 @@
 <% end %>
 </ul>
 
+<% end %>
+<% if logged_in? %>
 <a href="/questions/<%=@question.id%>/answers/new"> Submit an Answer</a>
+<% end %>

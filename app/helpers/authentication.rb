@@ -3,11 +3,11 @@ def logged_in?
 end
 
 def current_user
-  User.find(session[:user_id])
+  User.find_by_id(session[:user_id])
 end
 
 def author?(question)
-  question.author_id == current_user.id
+  question.author_id == current_user.id if current_user
 end
 
 def verify
