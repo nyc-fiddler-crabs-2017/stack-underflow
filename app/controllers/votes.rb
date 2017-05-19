@@ -21,7 +21,7 @@ post '/questions/:question_id/downvote' do
   vote = Vote.new(value: -1, user_id: current_user.id)
   @question.votes << vote
   if vote.save
-    redirect "/questions/#{@question_id}"
+    redirect "/questions/#{@question.id}"
   else
     @question = Question.find(params[:question_id])
     @errors = vote.errors.full_messages
@@ -40,7 +40,7 @@ post '/answers/:answer_id/upvote' do
     vote = Vote.new(value: 1, user_id: current_user.id)
     @answer.votes << vote
     if vote.save
-      redirect "/answers/#{@answer.question.id}/answers/#{@answer.id}"
+      redirect "/questions/#{@answer.question.id}/answers/#{@answer.id}"
     else
       @answer = Answer.find(params[:answer_id])
       @errors = vote.errors.full_messages
@@ -59,7 +59,7 @@ post '/answers/:answer_id/downvote' do
   vote = Vote.new(value: -1, user_id: current_user.id)
   @answer.votes << vote
   if vote.save
-    redirect "/answers/#{@answer.question.id}/answers/#{@answer.id}"
+    redirect "/questions/#{@answer.question.id}/answers/#{@answer.id}"
   else
     @answer = Answer.find(params[:answer_id])
     @errors = vote.errors.full_messages
