@@ -4,6 +4,10 @@
 
 <%= erb :_errors %>
 
+
+<%= erb :'votes/_vote', locals: { item: @question } %>
+
+
 <% if @question.answers.length > 0 %>
 <h2>Answers:</h2>
 <ul class= "answers-ul">

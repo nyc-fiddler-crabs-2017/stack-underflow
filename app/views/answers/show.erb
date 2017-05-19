@@ -2,5 +2,8 @@
 
 <a href="/questions/<%=@answer.question.id%>"> Return to Question</a>
 
-<%= erb :'answers/_answer', locals: {answer: answer} %>
+<%= erb :_errors %>
 
+<%= erb :'answers/_answer', locals: {answer: @answer} %>
+
+<%= erb :'votes/_vote', locals:{ item: @answer} %>
