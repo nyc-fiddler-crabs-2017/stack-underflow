@@ -1,7 +1,7 @@
 <h1>Stack Underflow</h1>
-
-<a href="/questions/new">Create a new Question</a>
-
+<% if logged_in? %>
+  <a href="/questions/new">Create a new Question</a>
+<%end %>
 <h2>Questions</h2>
 <div class="container">
   <ul>
