@@ -50,7 +50,7 @@ $(document).ready(function() {
     debugger
     var question_id =
     $.ajax({
-      method: get,
+      method: "get",
       url: '/questions/:question_id/comments/new',
     })
   })
