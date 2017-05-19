@@ -4,7 +4,7 @@ get '/questions' do
 end
 
 get '/questions/new' do
-  
+  halt(404, erb(:'404')) unless logged_in?
   erb :'/questions/new'
 end
 
