@@ -6,7 +6,7 @@ $(document).ready(function() {
     var action = form.attr('action');
     var data = form.serialize();
     $.ajax({
-      method: $(this).attr('method'),
+      method: form.attr('method'),
       url: action,
       data: data
     }).done(function(response){
@@ -21,7 +21,7 @@ $(document).ready(function() {
     var action = form.attr('action');
     var data = form.serialize();
     $.ajax({
-      method: $(this).attr("method"),
+      method: form.attr("method"),
       url: action,
       data: data
     }).done(function(response){
