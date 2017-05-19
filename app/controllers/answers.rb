@@ -32,9 +32,9 @@ end
 put '/questions/:question_id/answers/:answer_id' do
   #this needs to be protected for author only
   @question = Question.find(params[:question_id])
-  answer = Answer.find(params[:answer_id])
+  @answer = Answer.find(params[:answer_id])
   if author?(@question)
-    @question.best_answer_id = answer.id
+    @question.best_answer_id = @answer.id
     @question.save!
     redirect "/questions/#{@question.id}"
   else

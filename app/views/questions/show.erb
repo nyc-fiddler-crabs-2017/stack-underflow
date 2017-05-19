@@ -4,6 +4,9 @@
 
 <%= erb :_errors %>
 
+
+
+<%= erb :'votes/_vote', locals: { item: @question } %>
 <%= erb :'comments/_new', locals: {question: @question} %>
 
 <h4>Comments:</h4>
@@ -14,6 +17,7 @@
   <% end %>
 <% end %>
 </ul>
+
 
 <% if @question.answers.length > 0 %>
 <h2>Answers:</h2>

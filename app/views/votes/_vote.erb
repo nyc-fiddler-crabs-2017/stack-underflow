@@ -1,0 +1,12 @@
+<p>Vote Total = <%=item.total_vote_value%> </p>
+
+<% if logged_in? %>
+<form action="<%=upvote_route(item)%>" method="post">
+  <input type="submit" value="Upvote">
+</form>
+
+<form action="<%=downvote_route(item)%>" method="post">
+  <input type="submit" value="Downvote">
+</form>
+
+<% end %>
