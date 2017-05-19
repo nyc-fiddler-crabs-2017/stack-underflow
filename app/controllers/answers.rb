@@ -8,7 +8,9 @@ post '/questions/:question_id/answers' do
   halt(404, erb(:'404')) unless logged_in?
   @question = Question.find(params[:question_id])
   answer = Answer.new(params[:answer])
+  current_user.answers << answer
   @question.answers << answer
+
   if answer.save
     redirect "/questions/#{@question.id}/answers/#{answer.id}"
   else
