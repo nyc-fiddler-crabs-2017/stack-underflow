@@ -13,7 +13,7 @@ post '/questions/:question_id/answers' do
 
   if answer.save
     if request.xhr?
-      erb :'/questions/_new', layout: false, locals: {question: @question}
+      erb :'/answers/_answer', layout: false, locals: {answer: answer}
     else
     redirect "/questions/#{@question.id}/answers/#{answer.id}"
     end

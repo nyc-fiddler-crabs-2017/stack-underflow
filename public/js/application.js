@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $("#new-question-form").on("submit", function(event){
+  $(".new-question-form").on("submit", function(event){
     var form = $(this);
     var action = form.attr('action');
     var data = form.serialize();
@@ -14,7 +14,8 @@ $(document).ready(function() {
     });
   });
 
-  $("#new-answer-form").on("submit", function(event){
+  $(".new-answer-form").on("submit", function(event){
+    event.preventDefault();
     var form = $(this);
     var action = form.attr('action');
     var data = form.serialize();
@@ -23,8 +24,8 @@ $(document).ready(function() {
       url: action,
       data: data
     }).done(function(response){
-      // can't see what my response is- do I need to isolate only the new form info to prepend?
-      $("#answers-ul").append(response)
+      $(".answers-ul").append(response);
+      $('.new-answer-form').trigger('reset');
     });
   });
 
