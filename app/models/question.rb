@@ -5,6 +5,7 @@ class Question < ActiveRecord::Base
   # has_one :best_answer, class_name: "Answer"
   has_many :answers
   has_many :responders, through: :answers, source: :user
+  has_many :comments, as: :commentable
 
   def best_answer
     Answer.find_by_id(best_answer_id)
