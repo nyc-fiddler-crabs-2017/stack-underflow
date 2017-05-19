@@ -9,7 +9,9 @@
 <div class="container">
   <ul class="questions-list">
     <% @questions.each do |question|%>
+
     <%= erb :'questions/_question', locals: {question: question} %>
+
     <% end %>
   </ul>
 </div>
