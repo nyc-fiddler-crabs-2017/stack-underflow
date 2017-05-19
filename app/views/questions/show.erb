@@ -6,6 +6,15 @@
 
 <%= erb :'comments/_new', locals: {question: @question} %>
 
+<% if @question.comments.length > 0 %>
+<h4>Comments:</h4>
+<ul class= "comments-ul">
+  <% @question.comments.each do |comment| %>
+    <li><%=comment.body%></li>
+  <% end %>
+</ul>
+<% end %>
+
 <% if @question.answers.length > 0 %>
 <h2>Answers:</h2>
 <ul class= "answers-ul">
