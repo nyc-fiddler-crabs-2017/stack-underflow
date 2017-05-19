@@ -4,6 +4,8 @@
 
 <%= erb :_errors %>
 
+<%= erb :'comments/_new', locals: {question: @question} %>
+
 <% if @question.answers.length > 0 %>
 <h2>Answers:</h2>
 <ul class= "answers-ul">
